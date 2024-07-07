@@ -1,18 +1,19 @@
 <?php
-    header('content-Type: application/json');
 
+    function get(){
+        
+        include_once("config.php");
 
-    include_once("config.php");
+        global $CONECT;
 
-    global $CONECT;
+        $SQL=$CONECT->prepare("SELECT * FROM registro");
+        $SQL->execute();
 
-    $SQL=$CONECT->prepare("SELECT * FROM registro");
-    $SQL->execute();
+        $result=$SQL->fetchALL(PDO::FETCH_ASSOC);
 
-    $result=$SQL->fetchALL(PDO::FETCH_ASSOC);
+        
+        return $result;
 
-    echo ( json_encode($result) );
-
-    
+    }
 
 ?>

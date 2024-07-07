@@ -27,7 +27,7 @@ $(document).ready(()=>{
                     $(".conteudo").prepend(`<section class="items">`);
                 }
                 
-                $(".conteudo").prepend("<section class=cont> <img class=image src=fotos/"+result[i].img+" > </br>  <section><h3>"+ result[i].Titulo+" </h3><p> "+result[i].Item+" </p><p>"+ result[i].descricao+" </p></section></section>");
+                $(".conteudo").prepend("<section class=cont> <img class=image src=fotos/"+result[i].img+" > </br>  <section><h3>"+ result[i].Titulo+" </h3><p> "+result[i].Item+" </p><p>"+ result[i].descricao+" </p></section> <button class=button  click=edit() >Editar</button></section>");
                 console.log(contador)
                 
                 if(contador==3){
@@ -51,17 +51,10 @@ $(document).ready(()=>{
 
 })
 
-/*
-<section>
-    <img src="fotos/"+result[i].img> </br>
 
-    <section>
-        <h3> result[i].Titulo </h3>
-        <p> result[i].Item </p>
-        <p> result[i].descricao </p>
-    </section>
+function edit(id){
 
-</section>
+    console.log("id do usuarion"+"  "+id)
+    alert("id do usuarion"+"  "+id)
 
-
-*/
+}
