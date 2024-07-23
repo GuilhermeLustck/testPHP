@@ -26,6 +26,25 @@
 
         return $result=$DQL->fetch(PDO::FETCH_ASSOC);
 
+    }
+    
+    function update($id,$img,$item,$titulo,$descricao ){
+        //consulta
+        $query="UPDATE  registro SET Item=:item, Titulo=:titulo, descricao=:descricao, img=:imagen  WHERE IDres=:ID" ;
+
+        //requisição ao banco de dados
+        $sql=$CONECT->prepare($query);
+        $sql->bindvalue(":ID",$id,PDO::PARAM_INT);
+        $sql->bindvalue(":item",$item,PDO::PARAM_STR);
+        $sql->bindvalue(":titulo",$titulo,PDO::PARAM_STR);
+        $sql->bindvalue(":descricao",$descricao,PDO::PARAM_STR);
+        $sql->bindvalue(":imagen",$img,PDO::PARAM_STR);
+        $sql->execute();
+        
+
 
     }
-?>
+
+
+
+       ?>
