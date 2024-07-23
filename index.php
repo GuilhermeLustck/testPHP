@@ -40,20 +40,26 @@
                 $result=$SQL->fetchALL(PDO::FETCH_ASSOC);
 
                 if($result){
-                   
+                   session_start();
+                   $_SESSION["dados2A"]=$result;
 
                     for( $i=0;$i<count($result);$i++ ){
 
                        echo("
-                        <section class=cont>
-                        <img class=image src=fotos/".$result[$i]["img"].">
-                        </br> 
-                        <section>
-                        <h3>".$result[$i]["Titulo"]."</h3>
-                        <p>".$result[$i]["Item"]."</p>
-                        <p>".$result[$i]["descricao"]."</p></section> 
-                        <input type=button value=editar class=button  onclick='edit(".$result[$i]["IDres"].")' >
-                        </section>"
+                        <form method=GET action=update/update.php >
+                            <section class=cont>
+                            <img class=image src=fotos/".$result[$i]["img"].">
+                            </br> 
+                            <section>
+                            <h3>".$result[$i]["Titulo"]."</h3>
+                            <p>".$result[$i]["Item"]."</p>
+                            <p>".$result[$i]["descricao"]."</p></section> 
+                            <input type=hidden name=id value=".$result[$i]["IDres"].">
+                            <input type=submit value=editar class=button  onclick='edit(".$result[$i]["IDres"].")' >
+                            </section>
+                        </form>"
+                        
+                        
                         );
                        
 
@@ -65,5 +71,5 @@
         </article>
         
     </main>
-    
+        
 </body>

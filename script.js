@@ -54,7 +54,9 @@ $(document).ready(()=>{
 
 function edit(id){
 
-    console.log("id do usuarion"+"  "+id)
-    alert("id do usuarion"+"  "+id)
+    console.log("id do usuarion"+"  "+id);
+    alert("id do usuarion"+"  "+id);
+    
 
+    window.location.assign("update/update.php");
 }

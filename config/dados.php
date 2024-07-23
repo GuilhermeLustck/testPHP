@@ -11,9 +11,21 @@
 
         $result=$SQL->fetchALL(PDO::FETCH_ASSOC);
 
-        
         return $result;
 
     }
 
+    function upGet($id){
+        include_once("config.php");
+
+        
+        //consulta usuario com base no Id do mesmo
+        $DQL=$CONECT->prepare("SELECT * FROM registro WHERE IDres=:ID");
+        $DQL->bindvalue( ":ID", $id ,PDO::PARAM_INT );
+        $DQL->execute();
+
+        return $result=$DQL->fetch(PDO::FETCH_ASSOC);
+
+
+    }
 ?>
