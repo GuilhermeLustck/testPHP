@@ -45,7 +45,7 @@
             
             ?>
 
-            <form class="form" action="../config/regis.php" method="POST" enctype="multipart/form-data">
+            <form class="form" action="upDatabase.php" method="POST" enctype="multipart/form-data">
                 <!--
                     <label for="Item">Item</label><br/>
                     

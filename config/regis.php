@@ -4,14 +4,15 @@
     $item  = $_POST["Item"];
     $titulo= $_POST["Titulo"];
     $desc  = $_POST["Descricao"];
-
+    //pega o nome da imagem
     $img=basename($_FILES["img"]["name"]);
-
+    /*
     echo($img."</br>");
     echo($item ."</br>");
     echo($titulo."</br>");
     echo($desc."</br>");
-
+    */
+    //add no banco de dados
     if( !res($item,$titulo,$desc,$img) ){
 
         $dirFoto= "../fotos/";
@@ -19,13 +20,14 @@
 
         
         $veri = getimagesize($_FILES["img"]["tmp_name"]);
-
+        //verifica se á uma imagen
         if($veri){
+            //salva a imagen no arquivo fotos
             if(move_uploaded_file($_FILES["img"]["tmp_name"],$dirFILE)){
 
                 echo("arquivo". htmlspecialchars(basename($_FILES["img"]["name"])). "foi enviado com sucesso");
-                
-                header("location:../index.html");
+                //o usuario retorna para o index
+                header("location:../index.php");
 
             }else{
 

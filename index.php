@@ -46,16 +46,17 @@
                     for( $i=0;$i<count($result);$i++ ){
 
                        echo("
-                        <form method=GET action=update/update.php >
+                        <form method=GET action=update/update.php class=form >
                             <section class=cont>
-                            <img class=image src=fotos/".$result[$i]["img"].">
+                            <img class=image src=fotos/".$result[$i]["img"]." alt=".$result[$i]["descricao"].">
                             </br> 
-                            <section>
-                            <h3>".$result[$i]["Titulo"]."</h3>
-                            <p>".$result[$i]["Item"]."</p>
-                            <p>".$result[$i]["descricao"]."</p></section> 
+                            <section class=boxTexto >
+                                <h3>".$result[$i]["Titulo"]."</h3>
+                                <p>".$result[$i]["Item"]."</p></br>
+                                <p>".$result[$i]["descricao"]."</p>
+                            </section> 
                             <input type=hidden name=id value=".$result[$i]["IDres"].">
-                            <input type=submit value=editar class=button  onclick='edit(".$result[$i]["IDres"].")' >
+                            <input type=submit value=edit class=button1  onclick='edit(".$result[$i]["IDres"].")' >
                             </section>
                         </form>"
                         

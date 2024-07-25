@@ -6,7 +6,7 @@ $(document).ready(()=>{
     })
 })
 
-
+/*
 $(document).ready(()=>{
     console.log("ajax")
     $.ajax({
@@ -50,7 +50,7 @@ $(document).ready(()=>{
 
 
 })
-
+*/
 
 function edit(id){
 
