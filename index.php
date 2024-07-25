@@ -48,7 +48,7 @@
                        echo("
                         <form method=GET action=update/update.php class=form >
                             <section class=cont>
-                            <img class=image src=fotos/".$result[$i]["img"]." alt=".$result[$i]["descricao"].">
+                            <img class=image src=fotos/".$result[$i]["img"].">
                             </br> 
                             <section class=boxTexto >
                                 <h3>".$result[$i]["Titulo"]."</h3>
