@@ -9,7 +9,7 @@
     
 
     $cont= array_search( $id, array_column($dados,"IDres"));
-
+    $_SESSION["update"]=$id;
     
 
     $info=$dados[$cont];
@@ -70,21 +70,20 @@
                     
                     echo("
                         <label for=Item>Item</label><br/>
-                
-                        <input type=text name=Item id=Item  class=input value=". $res["Item"] ."  >
+                        <input type=text name=Item id=Item class=input value=". $res["Item"] .">
                         <br/>
                         
                         <label for=Titulo>Titulo</label><br/>
-                        <input type=text name=Titulo id=Titulo  class=input value=". $res["Titulo"] ."  > 
+                        <input type=text name=Titulo id=Titulo class=input value=". $res["Titulo"] ."> 
                         <br/>
 
-                        <label for=Descriçao>Descriçao</label><br/>
+                        <label for=Descriçao>Descrição</label><br/>
                         <textarea rows=10 cols=30 name=Descricao id=desc >". $res["descricao"] ."</textarea><br/>
                         
                         
 
                         <label for=img>Image</label> <br/>
-                        <input type=file name=img id=img><br/>
+                        <input type=file name=img id=img required><br/>
                     ");
 
                 ?>

@@ -40,6 +40,7 @@
         $sql->bindvalue(":descricao",$descricao,PDO::PARAM_STR);
         $sql->bindvalue(":imagen",$img,PDO::PARAM_STR);
         $sql->execute();
+        return $sql;
         
 
 
