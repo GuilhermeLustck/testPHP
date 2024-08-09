@@ -6,6 +6,7 @@
     $item=$_POST["item"];
     $titulo=$_POST["titulo"];
     $descricao=$_POST["Descricao"];
+    $id=$_SESSION["update"];
     //diretorio do arquivo fotos
     $dirFoto= "../fotos/";
 
@@ -20,6 +21,7 @@
                 if(move_uploaded_file($_FILES["img"]["tmp_name"],$file)){
                     //atualiza o resto da informação no DB
                     if(update($id,$file,$item,$titulo,$descricao)){
+                        session_destroy();
                         header("location:../index.php");
                     }
 
@@ -28,6 +30,7 @@
                 }
             }else{
                 echo("erro na substituição da imagen");
+              
             }
         }else{
         echo("não á imagen");
@@ -38,6 +41,7 @@
             if(move_uploaded_file($_FILES["img"]["tmp_name"],$file)){
                  //atualiza o resto da informação no DB
                  if(update($id,$file,$item,$titulo,$descricao)){
+                    session_destroy();
                     header("location:../index.php");
                 }
             }else{
