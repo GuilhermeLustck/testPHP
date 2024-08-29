@@ -17,7 +17,7 @@
    
     $res=upGet($id);
     
-
+    $id=array($_GET["id"],$res["img"]);
 
 
 ?>
