@@ -1,5 +1,7 @@
 <?php
 
+//documento responsavel pelas funcoes de todo projeto envolvendo banco de dados ou dados
+
     function get(){
         
         include_once("config.php");
@@ -55,9 +57,6 @@
     function objJson($id){
         $dados=$_SESSION["dados2A"];
         
-
-        
-
         foreach($dados as $json){
 
             if($json["IDres"]==$id){
