@@ -32,12 +32,10 @@
                     if(update($id,$file,$item,$titulo,$descricao)){
                         echo("</br>atualizado o bancod e dados");
                         //sleep(20);
-                        
-
+            
                         session_destroy();
                         echo("</br>sessao finalizada");
                         
-
                         //header("location:../index.php");
                     }
 
