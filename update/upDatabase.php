@@ -17,42 +17,58 @@
 
     $file=$dirFoto.basename($_FILES["img"]["name"]);
     //verifica se a imagem existe
-    if(file_exists(json_decode($file)) || file_exists($dados["img"])){
+    if(file_exists($dados["img"])){
         //verifica se e uma imagen
         if(getimagesize($_FILES["img"]["tmp_name"])){
             //exclui a imagen anterior
             if(unlink( $dados["img"] ) ){
-                echo("excluido");
+                echo("</br>excluido");
+                
                 //salva a imagen no arquivo fotos
                 if(move_uploaded_file($_FILES["img"]["tmp_name"],$file)){
                     //atualiza o resto da informação no DB
-                    echo("atualizado a foto");
+                    echo("</br>Foto atualizado");
+                    
                     if(update($id,$file,$item,$titulo,$descricao)){
-                        echo("atualizado o bancod e dados");
+                        echo("</br>atualizado o bancod e dados");
+                        //sleep(20);
+                        
+
                         session_destroy();
-                        echo("sessao finalizada");
-                        header("location:../index.php");
+                        echo("</br>sessao finalizada");
+                        
+
+                        //header("location:../index.php");
                     }
 
                 }else{
-                    echo("erro no upload da imagen");
+                    die("</br>erro no upload da imagen");
+                    
                 }
             }else{
-                die("erro na substituição da imagen");
+                die("</br>erro na substituição da imagen");
               
             }
         }else{
-        echo("não á imagen");
+        echo("</br>não á imagen");
         }
     }else{
         //verifica se e uma imagen
-        echo("segunda entrada");
+        echo("</br>segunda entrada");
+        
         if(getimagesize($_FILES["img"]["tmp_name"])){
             if(move_uploaded_file($_FILES["img"]["tmp_name"],$file)){
+                echo("</br>Adicionado a foto");
+                
                  //atualiza o resto da informação no DB
                  if(update($id,$file,$item,$titulo,$descricao)){
+                    echo("</br>salvo no bancod e dados");
+                    //sleep(20);
                     session_destroy();
-                    header("location:../index.php");
+                    echo("</br>sessao finalizada");
+                    
+
+                    //header("location:../index.php");
                 }
             }else{
                 echo("erro no upload da imagen");

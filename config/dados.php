@@ -60,7 +60,7 @@
         foreach($dados as $json){
 
             if($json["IDres"]==$id){
-                
+                print_r($json);
                 return $json;
             }
 
