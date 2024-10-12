@@ -1,0 +1,76 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #2a1e66;
+    background-color: #ae00ff;
+    overflow: hidden; /* Alterado para ocultar barras de rolagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.h4 {
+    font-weight: 750;
+    font-size: 25px;
+    text-align: center;
+}
+
+.card {
+    width: 500px; /* Reduzi o tamanho do card para 250px */
+    height: auto; /* Defina para 'auto' para que o tamanho seja baseado no conteúdo */
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(21, 21, 21, .2);
+    padding: 20px;
+    text-align: left;
+    position: relative; /* Alterado para 'relative' para se encaixar no fluxo do documento */
+}
+
+.novopost {
+    padding: 5px; /* Reduzi o padding para diminuir o tamanho dos campos */
+    height: 30px; /* Reduzi a altura dos campos */
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #2a1e66;
+    background-color: #f5e9b2;
+    border: none;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.button {
+
+    border-radius: 4px;
+    height: 44px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+    padding: 0 30px;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    background-color: #2a1e66;
+    color: #f5e9b2;
+    width: 25%;
+    margin-top: 10px; /* Adicionada margem superior para o botão */
+}
+
+.button:hover {
+    background-color: #f5e9b2;
+    color: #2a1e66;
+    box-shadow: 0 8px 24px 0 rgba(16, 39, 112, .2);
+}
+
+.button-container {
+    text-align: center; /* Centraliza o botão horizontalmente */
+}
