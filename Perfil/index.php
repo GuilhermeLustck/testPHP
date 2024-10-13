@@ -6,9 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apock web design</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-</head>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <?php
+    include "../config/dados.php";
+    //pega o id do usuario
+    session_start();
+    if(!$id=$_SESSION["ID"]){
+      header("location:../index.php");
+    }else{
+      $DADOS=usuario($id);
+    }
+  ?>
+  </head>
 
 <body>
 
@@ -27,15 +36,15 @@
 
     <div class="perfil-usuario-body">
       <div class="perfil-usuario-bio">
-        <h3 class="titulo"> Nome completo do usuario</h3>
+        <h3 class="titulo"> <?echo($DADOS["Nome"]); ?></h3>
         <p class="idusuario"> @IDUsuario </p>
       </div>
       <div class="perfil-usuario-footer">
         <ul class="lista-datos">
-          <li><i class="icono fas fa-calendar-alt"></i> Data de Nascimento: </li>
-          <li><i class="icono fas fa-map-marker-alt"></i> Endereço: </li>
-          <li><i class="icono fas fa-phone-alt"></i> Telefone:</li>
-          <li><i class="icono fas fa-share-alt"></i> E-Mail: </li>
+          <li><i class="icono fas fa-calendar-alt"></i> <?echo($DADOS["DTNasc"]); ?> </li>
+          <li><i class="icono fas fa-map-marker-alt"></i> <?echo($DADOS["Ender"]); ?> </li>
+          <li><i class="icono fas fa-phone-alt"></i> <?echo($DADOS["Tel"]); ?></li>
+          <li><i class="icono fas fa-share-alt"></i> <?echo($DADOS["Email"]); ?> </li>
         </ul>
       </div>
       <div class="redes-sociales">

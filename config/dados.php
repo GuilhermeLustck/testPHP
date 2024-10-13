@@ -67,5 +67,15 @@
         }
 
     }
+    function usuario($id){
+        include_once("config.php"); 
 
+        $sql=$CONECT->prepare("SELECT DTNasc,Ender,Tel,Email,Nome FROM usuario WHERE ID=:id ");
+        $sql->bindvalue(":id",$id,PDO::PARAM_INT);
+        $sql->execute();
+        $result=$sql->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+    
 ?>
