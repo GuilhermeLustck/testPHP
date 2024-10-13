@@ -3,10 +3,11 @@
     //importando as dependencias do documento dados.php
     include_once("../config/dados.php");
     session_start();
-    $item=$_POST["Item"];
-    $titulo=$_POST["Titulo"];
-    $descricao=$_POST["Descricao"];
-    $id=$_SESSION["update"][0];
+    $Nalto=$_POST["Nome_do_autor"];
+    $Gitulo=$_POST["Titulo_do_Livro"];
+    $Genero=$_POST["Genero_do_livro"];
+    $Status=$_POST["statu_atual_do_livro"];
+    
     //diretorio do arquivo fotos
     $dirFoto= "../fotos/";
     

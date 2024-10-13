@@ -6,20 +6,22 @@
 </head>
 <body>
     <div class="card">
-        <form>
+        <form action="../config/regis.php" method="POST" enctype="multipart/form-data">
+
             <h4 class="h4"> Novo Post </h4>
-            <input type="text" class="novopost" placeholder="Titulo do Livro" required="required">
-            <input type="text" class="novopost" placeholder="Nome do autor" required="required">
-            <input type="text" class="novopost" placeholder="Genero do livro" required="required">
-            <input type="text" class="novopost" placeholder="Estado atual do livro" required="required">
+            <input type="text" class="novopost" placeholder="Titulo do Livro" name="Titulo_do_Livro" required="required">
+            <input type="text" class="novopost" placeholder="Nome do autor" name="Nome_do_autor" required="required">
+            <input type="text" class="novopost" placeholder="Genero do livro" name="Genero_do_livro" required="required">
+            <input type="text" class="novopost" placeholder="Estado atual do livro" name="statu_atual_do_livro" required="required">
             <br> <br>
             Insira fotos reais do seu livro:
-            <input type="image" class="novopost" required="required">
-            <input type="text" class="novopost" placeholder="Sinopse" required="required">
+            <input type="file" name="img" id="img" class="novopost" required="required">
 
-            <div class="button-container">
+            <input type="text" class="novopost" placeholder="Sinopse" name="Sinopse" required="required">
+
+            <section class="button-container">
                 <button type="button" class="button"> Postar </button>
-            </div>
+            </section>
 
         </form>
     </div>
