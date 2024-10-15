@@ -35,22 +35,24 @@
 
                 if($result){
                    session_start();
-                   $_SESSION["dados2A"]=$result;
+                   
 
                     for( $i=0;$i<count($result);$i++ ){
 
                        echo("
                         <form method=GET action=update/update.php class=form >
                             <section class=cont>
-                            <img class=image src=../fotos/".$result[$i]["img"].">
+                            <img class=image src=../fotos/".$result[$i]["imagen"].">
                             </br> 
                             <section class=boxTexto >
-                                <h3>".$result[$i]["Titulo"]."</h3>
-                                <p>".$result[$i]["Item"]."</p></br>
-                                <p>".$result[$i]["descricao"]."</p>
+                                <h3>".$result[$i]["TLivro"]."</h3>
+                                <p>".$result[$i]["Genero"]."</p></br>
+                                <p>".$result[$i]["Sinopse"]."</p></br>
+                                <p>".$result[$i]["NAutor"]."</p></br>
+                                <p>".$result[$i]["status_Do_L"]."</p>
                             </section> 
-                            <input type=hidden name=id value=".$result[$i]["IDres"].">
-                            <input type=submit value=edit class=button1  onclick='edit(".$result[$i]["IDres"].")' >
+                            <input type=hidden name=id value=".$result[$i]["IDCont "].">
+                            <input type=submit value=edit class=button1  onclick='edit(".$result[$i]["IDCont "].")' >
                             </section>
                         </form>"
                         
@@ -62,7 +64,8 @@
                 }
                 
 
-            ?>
+        ?>
+        
         <div class="novo-post">
             <button type="button" class="button"> Novo Post </button>
         </div>

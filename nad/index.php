@@ -1,28 +1,34 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title> TrocaTroca</title>
-    <link rel="stylesheet" href="style.css">
-    <!--<Link type="text/css" href="../style.css" rel="stylesheet">-->
-    
+    <Link type="text/css" href="style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+    <?php
+        function edit($id){
+
+            echo("ID do objeto".$id);
+
+        }
+
+    ?>
 </head>
+
 <body>
-    <header>
 
-        <img src="logo.png" class="imglogo" alt="logo da empresa">
-
-        <div class="search-container">
-        <input type="text" class="abadepesquisa" placeholder="Pesquisar...">
-        <div class="vertical-bar"></div>
-        <a href="perfil">
-            <img src="perfil.png" alt="Imagem de perfil" class="imgperfil">
-        </a>
-        </div>
+    <header class="cabe">
+        
+        <section id="registrar">
+            <button type="button" class="button" >registrar</button>
+        </section>
 
     </header>
-    <main>
-        <?php
+         
+    <main class="corpo">
+
+        <h1 id="erro"></h1>
+        <article class="conteudo">
+            <?php
                 include("config/dados.php");
                 include_once("config/config.php");
 
@@ -65,11 +71,8 @@
                 
 
             ?>
-        <div class="novo-post">
-            <button type="button" class="button"> Novo Post </button>
-        </div>
+        </article>
+        
     </main>
-    
-
+        
 </body>
-</html>
