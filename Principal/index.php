@@ -15,7 +15,7 @@
         <div class="search-container">
         <input type="text" class="abadepesquisa" placeholder="Pesquisar...">
         <div class="vertical-bar"></div>
-        <a href="perfil_da_pessoa.html">
+        <a href="perfil">
             <img src="perfil.png" alt="Imagem de perfil" class="imgperfil">
         </a>
         </div>
@@ -64,8 +64,7 @@
                 }
                 
 
-        ?>
-        
+            ?>
         <div class="novo-post">
             <button type="button" class="button"> Novo Post </button>
         </div>
