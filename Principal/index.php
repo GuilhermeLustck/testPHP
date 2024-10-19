@@ -26,6 +26,14 @@
                 include("../config/dados.php");
                 include_once("../config/config.php");
 
+                $objet =[{
+                   TLivro:"Nosso lar",
+                   Genero:"Espirita",
+                   Sinopse:" Nosso Lar é uma obra psicografada, e o primeiro dos treze livros da série espírita A Vida no Mundo Espiritual, também conhecida como Série Nosso Lar, criada pelo médium brasileiro Chico Xavier. ",         NAutor:"Chico Xavier.",
+                   status_Do_L:"false"
+                   
+                }]
+
                 global $CONECT;
 
                 $SQL=$CONECT->prepare("SELECT * FROM registro");
