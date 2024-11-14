@@ -22,13 +22,13 @@
 
     </header>
     <main>
-        <?php
+        <?php   
+                session_start();
                 include("../config/dados.php");
                 include_once("../config/config.php");
 
                 global $CONECT;
-                session_start();
-                echo($_SESSION["ID"]);
+                
 
                 $SQL=$CONECT->prepare("SELECT * FROM registro");
                 $SQL->execute();
@@ -36,14 +36,13 @@
                 $result=$SQL->fetchALL(PDO::FETCH_ASSOC);
 
                 if($result){
-                   session_start();
                    
 
                     for( $i=0;$i<count($result);$i++ ){
 
                        echo("
                             <div class=post>
-                                <form method=GET action=update/update.php class=form >
+                                <form method=GET action=../update/update.php class=form >
                                     <section class=cont>
                                         <img class=imglivro src=../fotos/".$result[$i]["imagen"]."> 
                                         <section class=boxTexto >
@@ -55,7 +54,7 @@
                                             <p>false</p>
                                             
                                         </section> 
-                                        <input type=hidden name=id value=".$result[$i]["IDCont "].">
+                                        <input type=hidden name=id value=".$result[$i]["IDCont"].">
                                         <input type=submit value=edit class=button1  >
                                     </section>
                                 </form>

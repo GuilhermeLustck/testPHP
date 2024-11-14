@@ -30,7 +30,7 @@
 
     }
     
-    function update($id,$img,$item,$titulo,$descricao ){
+    function update($id,$img,$getero,$Tlivro,$sinopse,$NAutor,$status ){
         //importa a conexao com o db
         include_once("config.php");
 
@@ -41,11 +41,13 @@
         }
 
         //requisição ao banco de dados
-        $sql=$CONECT->Prepare("UPDATE registro SET Item=:item, Titulo=:titulo, descricao=:descricao, img=:imagen  WHERE IDres=:ID");
-        $sql->bindvalue(":ID",$id,PDO::PARAM_INT);
-        $sql->bindvalue(":item",$item,PDO::PARAM_STR);
-        $sql->bindvalue(":titulo",$titulo,PDO::PARAM_STR);
-        $sql->bindvalue(":descricao",$descricao,PDO::PARAM_STR);
+        $sql=$CONECT->Prepare("UPDATE registro SET Genero=:Genero, 	TLivro=:TLivro, Sinopse=:Sinopse,NAutor:NAutor,	status_Do_L:status_Do_L, imagen=:imagen  WHERE IDCont =:ID");
+        $sql->bindvalue("IDCont",$id,PDO::PARAM_INT);
+        $sql->bindvalue(":Genero",$getero,PDO::PARAM_STR);
+        $sql->bindvalue(":TLivro",$Tlivro,PDO::PARAM_STR);
+        $sql->bindvalue(":Sinopse",$sinopse,PDO::PARAM_STR);
+        $sql->bindvalue(":NAutor",$NAutor,PDO::PARAM_STR);
+        $sql->bindvalue(":status_Do_L",$status,PDO::PARAM_STR);
         $sql->bindvalue(":imagen",$img,PDO::PARAM_STR);
         $sql->execute();
         return $sql->execute();
@@ -54,17 +56,17 @@
 
     }
 
-    function objJson($id){
-        $dados=$_SESSION["dados2A"];
-        
-        foreach($dados as $json){
+    function getUpdate($id){
+        include_once("config.php");
 
-            if($json["IDres"]==$id){
-                print_r($json);
-                return $json;
-            }
+        global $CONECT;
 
-        }
+        $sql=$CONECT->prepare("SELECT * FROM registro WHERE IDCont= :id ");
+        $sql->bindvalue(":id",$id,PDO::PARAM_INT);
+        $sql->execute();
+        $result=$sql->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
 
     }
     function usuario($id){
@@ -112,7 +114,7 @@
     }
     function login($email,$senha){
         include_once("config.php");
-
+        session_start();
         $sql=$CONECT->prepare("SELECT ID,Email,Senha FROM usuario where Email=:email and Senha=:senha");
         $sql->bindvalue(":email",$email, PDO::PARAM_STR);
         $sql->bindvalue(":senha",$senha, PDO::PARAM_STR);
@@ -121,7 +123,7 @@
 
         if ($result) {
             echo ("<script>alert(Este usuário não existe!)</script>"); 
-            $_SESSION["ID"]=$result['ID'];
+            $_SESSION["id"]=$result['ID'];
             header("location:../principal/index.php");
 
         }else{

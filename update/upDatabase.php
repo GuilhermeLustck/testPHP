@@ -5,16 +5,15 @@
     session_start();
     $Nalto=$_POST["Nome_do_autor"];
     $Gitulo=$_POST["Titulo_do_Livro"];
-    $Genero=$_POST["Genero_do_livro"];
+    $genero=$_POST["Genero_do_livro"];
     $Status=$_POST["statu_atual_do_livro"];
     
     //diretorio do arquivo fotos
     $dirFoto= "../fotos/";
     
     //buscando mais informaçoes 
-    $dados=objJson($id);
+    $dados=getUpdate($id);
 
-    print_r($dados);
 
     $file=$dirFoto.basename($_FILES["img"]["name"]);
     //verifica se a imagem existe
@@ -30,7 +29,7 @@
                     //atualiza o resto da informação no DB
                     echo("</br>Foto atualizado");
                     
-                    if(update($id,$file,$item,$titulo,$descricao)){
+                    if(update($id,$img,$getero,$Tlivro,$sinopse,$Nalto,$Status)){
                         echo("</br>atualizado o bancod e dados");
                         //sleep(20);
             
@@ -60,7 +59,7 @@
                 echo("</br>Adicionado a foto");
                 
                  //atualiza o resto da informação no DB
-                 if(update($id,$file,$item,$titulo,$descricao)){
+                 if(update($id,$img,$getero,$Tlivro,$sinopse,$NAutor,$status )){
                     echo("</br>salvo no bancod e dados");
                     //sleep(20);
                     session_destroy();

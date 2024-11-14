@@ -1,24 +1,17 @@
 <?php
     session_start();
-    $dados=$_SESSION["dados2A"];
+    
     include("../config/dados.php");
+    include("../config/config.php");
 
     
 
     $id=$_GET["id"];
     
 
-    $cont= array_search( $id, array_column($dados,"IDres"));
-    $_SESSION["update"]=$id;
-    
-
-    $info=$dados[$cont];
-    
    
-    $res=upGet($id);
+    $res=getUpdate($id);
     
-    $id=array($_GET["id"],$res["img"]);
-
 
 ?>
 <!DOCTYPE html>
@@ -32,12 +25,12 @@
     <main class="corpo">
         <main class="formulary">
             
-            <a href="../index.php">Voltar</a></br>
+            <a href="../principal">Voltar</a></br>
             <?php 
             
             echo("
                 <section class=img>
-                    <img class=image src=../fotos/" .$res["img"]. ">
+                    <img class=image src=../fotos/" .$res["imagen"]. ">
                 </section>
             ");
             
@@ -46,39 +39,20 @@
             ?>
 
             <form class="form" action="upDatabase.php" method="POST" enctype="multipart/form-data">
-                <!--
-                    <label for="Item">Item</label><br/>
-                    
-                    <input type="text" name="Item" id="Item" required class="input"  >
-                    <br/>
-                    
-                    <label for="Titulo">Titulo</label><br/>
-                    <input type="text" name="Titulo" id="Titulo" required class="input"  > 
-                    <br/>
-
-                    <label for="Descriçao">Descriçao</label><br/>
-                    <textarea rows="10" cols="30" name="Descricao" id="desc" >
-
-                    </textarea><br/>
-                    
-                    
-
-                    <label for="img">Image</label> <br/>
-                    <input type="file" name="img" id="img"><br/>
-                -->
+                
                 <?php
                     
                     echo("
-                        <label for=Item>Item</label><br/>
-                        <input type=text name=Item id=Item class=input value=". $res["Item"] .">
+                        <label for=Item>Nome do autor</label><br/>
+                        <input type=text name=Item id=Item class=input value=". $res["NAutor"] .">
                         <br/>
                         
                         <label for=Titulo>Titulo</label><br/>
-                        <input type=text name=Titulo id=Titulo class=input value=". $res["Titulo"] ."> 
+                        <input type=text name=Titulo id=Titulo class=input value=". $res["TLivro"] ."> 
                         <br/>
 
                         <label for=Descriçao>Descrição</label><br/>
-                        <textarea rows=10 cols=30 name=Descricao id=desc >". $res["descricao"] ."</textarea><br/>
+                        <textarea rows=10 cols=30 name=Descricao id=desc >". $res["Sinopse"] ."</textarea><br/>
                         
                         
 
