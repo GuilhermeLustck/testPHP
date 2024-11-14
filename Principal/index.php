@@ -25,7 +25,7 @@
         <?php
                 include("../config/dados.php");
                 include_once("../config/config.php");
-                session_start();
+
                 global $CONECT;
                 
                 echo($_SESSION["ID"]);
