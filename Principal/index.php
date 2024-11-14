@@ -25,8 +25,10 @@
         <?php
                 include("../config/dados.php");
                 include_once("../config/config.php");
-
+                session_start();
                 global $CONECT;
+                
+                echo($_SESSION["ID"]);
 
                 $SQL=$CONECT->prepare("SELECT * FROM registro");
                 $SQL->execute();
@@ -40,24 +42,26 @@
                     for( $i=0;$i<count($result);$i++ ){
 
                        echo("
-                        <form method=GET action=update/update.php class=form >
-                            <section class=cont>
-                            <img class=image src=../fotos/".$result[$i]["imagen"].">
-                            </br> 
-                            <section class=boxTexto >
-                                <h3>".$result[$i]["TLivro"]."</h3>
-                                <p>".$result[$i]["Genero"]."</p></br>
-                                <p>".$result[$i]["Sinopse"]."</p></br>
-                                <p>".$result[$i]["NAutor"]."</p></br>
-                                <p>".$result[$i]["status_Do_L"]."</p>
-                            </section> 
-                            <input type=hidden name=id value=".$result[$i]["IDCont "].">
-                            <input type=submit value=edit class=button1  onclick='edit(".$result[$i]["IDCont "].")' >
-                            </section>
-                        </form>"
+                            <div class=post>
+                                <form method=GET action=update/update.php class=form >
+                                    <section class=cont>
+                                        <img class=imglivro src=../fotos/".$result[$i]["imagen"]."> 
+                                        <section class=boxTexto >
+                                            <h3>".$result[$i]["TLivro"]."</h3>
+                                            <p> ".$result[$i]["Genero"]."</p>
+                                            <p> ".$result[$i]["Sinopse"]."</p>
+                                            <p>".$result[$i]["NAutor"]."</p>
+                                            
+                                            <p>false</p>
+                                            
+                                        </section> 
+                                        <input type=hidden name=id value=".$result[$i]["IDCont "].">
+                                        <input type=submit value=edit class=button1  >
+                                    </section>
+                                </form>
+                            </div>
                         
-                        
-                        );
+                        ");
                        
 
                     }
@@ -66,7 +70,7 @@
 
             ?>
         <div class="novo-post">
-            <button type="button" class="button"> Novo Post </button>
+            <a href="../registro" ><button type="button" class="button"> Novo Post </button></a>
         </div>
     </main>
     

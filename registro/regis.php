@@ -1,11 +1,12 @@
 <?php
     include_once("../config/config.php");
-
+    session_start();
     $Nalto=$_POST["Nome_do_autor"];
     $Titulo=$_POST["Titulo_do_Livro"];
     $Genero=$_POST["Genero_do_livro"];
     $Status=$_POST["statu_atual_do_livro"];
     $Sinopse=$_POST["Sinopse"];
+    $ID=$_SESSION["ID"];
 
     //pega o nome da imagem
     $img=basename($_FILES["img"]["name"]);

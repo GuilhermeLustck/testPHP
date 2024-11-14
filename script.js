@@ -98,4 +98,3 @@ function validarNome(nome) {
     // Se passar por todas as verificações, o telefone é considerado válido
     return true;
   }
-  

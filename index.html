@@ -34,13 +34,15 @@
 										<div class="section text-center">
                                                                                         <br>
 											<h4 class="mb-4 pb-3">Login</h4>
-                                            <form id="form-front">
+                                            <form id="form-front" action="config/login.php" method="POST">
 											<div class="form-group">
-												<input type="email" class="form-style" placeholder="Email" required="required">
+												<input type="email" class="form-style" placeholder="Email" name="email" required="required">
 												
 											</div>	
 											<div class="form-group mt-2">
-												<input type="password" class="form-style" placeholder="Senha" required="required">
+												<input type="password" class="form-style" placeholder="Senha" name="senha" required="required">
+											</div>
+											<button type="submit" class="btn mt-4">Logar</button>
 											</form> 
                   		
 
@@ -48,8 +50,8 @@
 											<input type="checkbox" name="manterlogado" value="checked"> <label for="manterlogado">Manter-me logado</label>   
 												
 
-											</div>
-											<a href="#" class="btn mt-4">Logar</a>
+											
+											
                       <p class="mb-0 mt-4 text-center"><a href="#"> Esqueceu sua senha? </a></p>
 				      				<p class="link">
                        Ainda não tem conta?
@@ -65,59 +67,60 @@
 										<div class="section text-center">
                       
 											<h4 class="mb-3 pb-3"> Cadastre-se </h4>
-                                            <form id="form-back">
+											<!--Aqui é o formulário de cadastro-->
+                                            <form method="POST" action="config/cadastro.php" id="form-back">
                       <div style="height: 250px; overflow: scroll;">
                         
 											  <div class="form-group mt-2">
-												  <input type="text" class="form-style" placeholder="Nome completo" required="required"  minlength="3">
+												  <input type="text" class="form-style" placeholder="Nome completo"   minlength="3" name="Nome">
 											  </div>	
                       
 											  <div class="form-group mt-2"> Data de Nascimento:
-												  <input type="date" class="form-style" placeholder="Data da Nascimento" required="required">
+												  <input type="date" class="form-style" placeholder="Data da Nascimento"  name="DTNasc">
 											  </div>
 
                         <div class="form-group mt-2"> Sexo:
-                          <select class="form-style" name="sexo" placeholder="Sexo">
+                          <select class="form-style" placeholder="Sexo" name="Sexo">
                             <option value="feminino">Feminino</option>
                             <option value="masculino">Masculino</option>
                             <option value="outro">Outro</option>
                           </select>
 
                         <div class="form-group mt-2">
-												  <input type="text" class="form-style" placeholder="CPF" required="required" id="cpf" minlength="11" maxlength="11">
+												  <input type="text" class="form-style" placeholder="CPF" r	ired="required" id="cpf" minlength="11" maxlength="11" name="CPF">
 											  </div>
 
                         <div class="form-group mt-2">
-												  <input type="number" class="form-style" placeholder="Telefone Celular" required="required"  minlength="11" maxlength="11">
+												  <input type="number" class="form-style" placeholder="Telefone Celular"   minlength="11" maxlength="11" name="Telefone">
 						</div>
 
                         <div class="form-group mt-2">
-												  <input type="text" class="form-style" placeholder="Endereço Completo" required="required">
+												  <input type="text" class="form-style" placeholder="Endereço Completo"  name="Endereço">
 											  </div>
 
                         <div class="form-group mt-2">
-												  <input type="text" class="form-style" placeholder="ID de Usuário" required="required" minlength="3" maxlength="20">
+												  <input type="text" class="form-style" placeholder="ID de Usuário"  minlength="3" maxlength="20">
 											  </div>
 
                         <div class="form-group mt-2">
-												  <input type="email" class="form-style" placeholder="E-mail" required="required">
+												  <input type="email" class="form-style" placeholder="E-mail"  name="Email">
 											  </div>
 
                         <div class="form-group mt-2">
-												  <input type="password" class="form-style" placeholder="Senha" minlength="8" maxlength="15" required="required">
+												  <input type="password" class="form-style" placeholder="Senha" minlength="8" maxlength="15"  name="Senha">
 											  </div>
 
                         <div class="form-group mt-2">
-												  <input type="password" class="form-style" placeholder="Confirmar senha" minlength="8" maxlength="15" required="required" >
+												  <input type="password" class="form-style" placeholder="Confirmar senha" minlength="8" maxlength="15"  name="ConfirmarSenha">
 											  </div>
 						<div class="form-group mt-2"> Adicionar foto de perfil:
-												<input type="image" class="form-style" placeholder="Adicionar foto de perfil" required="required" >
+												<input type="image" class="form-style" placeholder="Adicionar foto de perfil"  >
 											</div>
 										  </form>
                         
                       </div>
 
-											<a href="#" class="btn mt-4">Cadastre-se</a>
+											<input type="submit" class="btn mt-4">Cadastre-se</input>
 				      					</div>
 			      					</div>
 			      				</div>
