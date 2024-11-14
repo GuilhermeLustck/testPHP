@@ -27,7 +27,7 @@
                 include_once("../config/config.php");
 
                 global $CONECT;
-                
+                session_start();
                 echo($_SESSION["ID"]);
 
                 $SQL=$CONECT->prepare("SELECT * FROM registro");
